@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PlaystationStore.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gameName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gameGeneric)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gamePrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gameName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gameGeneric)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gamePrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.gameID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.gameID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.gameID })
+        </td>
+    </tr>
+}
+
+</table>
